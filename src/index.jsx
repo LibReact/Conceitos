@@ -2,34 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 //import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Commet from './components/Comment';
 
 
-
-function formatName(user) {
-  return user.firstName + '' + user.lastName;
-}
-
-function getGreeting(user) {
-  if(user) {
-    return <h1>Hello, {formatName(user)}!</h1>;
-  }
-
-  return <h1>Hello, Stranger.</h1>
-}
-
-const user = {
-  avatarUrl: 'https://avatars.githubusercontent.com/u/20023147?v=4',
-  firstName: 'Bruno',
-  lastName: 'Lima'
-}
-
-const element = (
-  <div>
-    <img src={user.avatarUrl} alt="avatar" />
-    {getGreeting(user)}
-  </div>
-)
 
 // Especificando Elementos Filhos com JSX 
 // Se uma tag está vazia, você pode fechá-la imediatamente com />, como XML:
@@ -48,15 +23,74 @@ const element = (
 
 
 
+const user = {
+  avatarUrl: 'https://avatars.githubusercontent.com/u/20023147?v=4',
+  firstName: 'Bruno',
+  lastName: 'Lima',
+  text: 'lorem ipsum dolor set amment',
+  date: '1994-11-21'
+}
+
+
+
+
+
+
+
+
+// COMPONENTES
+
+// Ex: Componentes de função
+function Wellcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+// Ex: Comopnentes de classe ES6
+// class Wellcome extends React.Component {
+  
+//   render() {
+//       return <h1>Hello, {this.props.name}</h1>;
+//   }
+// }
+const el = <Wellcome name="Vamos aprender react JS" />;
 
 ReactDOM.render(
-  <React.StrictMode>
-    {element}
-  </React.StrictMode>,
+  el,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
+
+// RENDERIZANDO ELEMENTOS
+// Na prática, a maioria dos aplicativos React usam o ReactDOM.render() apenas uma única vez. 
+// Nas seções seguintes, aprenderemos como esse código pode ser encapsulado em componentes com estado.
+function tick() {
+  
+  const elClock = (
+    <div>
+      <h1>Hello, World!</h1>
+      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+    </div>
+  );
+
+  //ReactDOM.render(elClock, document.getElementById('root'));
+}
+
+setInterval(tick, 1000)
+// O setInterval() invoca a função tick em intervalos de 1 segundo. 
+// Ele continuará chamando a função até que o clearInterval() seja chamado, ou que a página seja fechada.
+
+
+
+
+
+
+ReactDOM.render(
+  <React.StrictMode>
+    {/* {element} */}
+    {/* <App />     */}
+    <Commet author={user} text={user.text} date={user.date} />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
