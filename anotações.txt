@@ -1,0 +1,11 @@
+Objeto Imutável
+- é um objeto no qual seu estado não pode ser modificado após ser criado.
+
+O setInterval() é uma função temporizadora. 
+- Ela executa uma função de retorno após determinado tempo. 
+- A função setInterval() executará infinitamente, até que você execute a função clearInterval().
+
+
+mounting   - montagem
+unmounting - desmontagem
+

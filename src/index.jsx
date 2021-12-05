@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 //import App from './App';
 import Commet from './components/Comment';
+import Clock from './components/Clock';
 
 
 
@@ -19,6 +20,7 @@ import Commet from './components/Comment';
 //     <h2>Good to see you here.</h2>
 //   </div>
 // );
+
 
 
 
@@ -62,34 +64,17 @@ ReactDOM.render(
 
 
 
-// RENDERIZANDO ELEMENTOS
-// Na prática, a maioria dos aplicativos React usam o ReactDOM.render() apenas uma única vez. 
-// Nas seções seguintes, aprenderemos como esse código pode ser encapsulado em componentes com estado.
-function tick() {
-  
-  const elClock = (
-    <div>
-      <h1>Hello, World!</h1>
-      <h2>It is {new Date().toLocaleTimeString()}.</h2>
-    </div>
-  );
-
-  //ReactDOM.render(elClock, document.getElementById('root'));
-}
-
-setInterval(tick, 1000)
-// O setInterval() invoca a função tick em intervalos de 1 segundo. 
-// Ele continuará chamando a função até que o clearInterval() seja chamado, ou que a página seja fechada.
 
 
 
 
 
-
+// Na prática, a maioria dos aplicativos React usam o ReactDOM.render() apenas uma única vez.
 ReactDOM.render(
   <React.StrictMode>
     {/* {element} */}
     {/* <App />     */}
+    <Clock />
     <Commet author={user} text={user.text} date={user.date} />
   </React.StrictMode>,
   document.getElementById('root')

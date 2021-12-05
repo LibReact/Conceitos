@@ -67,3 +67,55 @@ Em contraste, essa função é <b>impura</b> porque altera sua própria entrada:
 
 OBS: React é bastante flexível mas tem uma única regra estrita: <br>
 Todos os componentes React tem que agir como funções puras em relação ao seus props.
+
+#
+
+## State e Ciclo de Vida
+O state contém dados específicos ao componente que podem mudar com o tempo. O state é definido pelo usuário e deve ser um objeto JavaScript.
+
+Existem três coisas que você deve saber sobre setState().
+<ul>
+<li>Não Modifique o State Diretamente </li>
+<li>Atualizações de State Podem Ser Assíncronas </li>
+<li>Atualizações de State São Mescladas  </li>
+</ul>
+
+#
+Quando um componente é criado podemos adicionar métodos especiais referente ao ciclo de vida, são eles:
+
+  - componentDidMount() 
+    - é executado depois que a saída do componente é renderizada no DOM
+    - Se você precisar interagir com o browser, faça isto no método componentDidMount(). Não faça no render().
+  <br>
+  <br>
+  - componentWillUnmount()
+    - Invocado imediatamente antes que um componente seja desmontado e destruído.
+    - Qualquer limpeza necessária deve ser realizada neste método, como invalidar timers, cancelar requisições de rede, ou limpar qualquer subscrição que foi criada no componentDidMount().
+    - Não se deve chamar setState() porque o componente nunca irá será renderizado novamente.
+
+
+OBS: Ao utilizarmos class-components os métodos seguem essa ordem para serem executados:
+    
+    // 1º executado - Inicia o componente com um determinado estado.
+    constructor(props) {
+        super(props);
+        this.state = { date: new Date() };
+    }
+
+    // 2º executado - Renderiza os elementos HTML
+    render() {
+        return (
+            <div>
+                <h1>Hello, World!</h1>
+                <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+            </div>
+        );
+    }
+
+    // 3º executado  - Invoca os métodos do ciclo de vida do componente 
+    componentDidMount() {}
+    componentWillUnmount() {}
+
+<code> dúvidas?
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/ 
+</code>
