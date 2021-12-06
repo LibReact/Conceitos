@@ -4,6 +4,12 @@ import './index.css';
 //import App from './App';
 import Commet from './components/Comment';
 import Clock from './components/Clock';
+//import Form from './components/Eventos';
+//import LoggingButton from './components/Eventos';
+import Toggle from './components/Eventos';
+//import Greeting from './components/Condicional/exemplo1';
+import LoginControl from './components/Condicional/exemplo2';
+import Mailbox from './components/Condicional/exemplo3';
 
 
 
@@ -64,6 +70,7 @@ ReactDOM.render(
 
 
 
+const messages = ['React', 'Re: React', 'Re:Re: React'];
 
 
 
@@ -74,6 +81,10 @@ ReactDOM.render(
   <React.StrictMode>
     {/* {element} */}
     {/* <App />     */}
+    {/* <Greeting isLoggedIn={true} /> */}
+    <Mailbox unreadMessages={messages} />
+    <LoginControl />
+    <Toggle />
     <Clock />
     <Commet author={user} text={user.text} date={user.date} />
   </React.StrictMode>,

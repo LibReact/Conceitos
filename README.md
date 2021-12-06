@@ -119,3 +119,48 @@ OBS: Ao utilizarmos class-components os métodos seguem essa ordem para serem ex
 <code> dúvidas?
 https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/ 
 </code>
+
+#
+
+## Eventos
+Eventos em React são nomeados usando camelCase ao invés de letras minúsculas.
+
+<code>Dúvidas? 
+https://pt-br.reactjs.org/docs/handling-events.html
+</code>
+
+#
+## IF Inline com o Operador Lógico  &&
+Exemplo:<br>
+<code>
+    {x.length > 0 &&
+        <h2>
+            You have {x.length} unread messages.
+        </h2>
+    }
+</code>
+<br>
+Isto funciona porque em JavaScript, true && expressão são sempre avaliadas como expressão, e false && expressão são sempre avaliadas como false.
+
+Portanto, se a condição é <b>true</b>, o elemento logo depois do && irá aparecer no resultado.<br> Se o elemento é false, React irá ignora-lo.
+#
+
+### Evitando que um Componente seja Renderizado 
+Em casos raros você pode desejar que um componente se esconda ainda que ele tenha sido renderizado por outro componente. Para fazer isso, retorne null ao invés do resultado renderizado.
+
+<code>
+    function WarningBanner(props) {<br>
+        if (!props.warn) { <br>   
+            return null; <br> 
+        } <br>
+        return ( <br>
+            <div className="warning">
+                Warning!
+            </div>
+        );<br>
+    }<br>
+</code>
+
+<code>Dúvidas?
+https://pt-br.reactjs.org/docs/conditional-rendering.html
+</code>
